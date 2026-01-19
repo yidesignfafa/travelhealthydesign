@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Healthy | Editorial Case Study</title>
+    <style>
+        /* --- 1. VARIABLES --- */
+        :root {
+            --bg-color: #FAFAF9;
+            --text-main: #1C1C1E;
+            --text-muted: #636366;
+            --accent: #009CA6; 
+            --dark-bg: #111111;
+            --white: #FFFFFF;
+            
+            /* Fluid Colors */
+            --fluid-blue: #5BE8F0;
+            --fluid-green: #BFFD50;
+            
+            /* Font Stacks */
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+        }
+
+        /* --- 2. GLOBAL STYLES --- */
+        body {
+            font-family: var(--font-sans); /* Global Sans-Serif */
+            background-color: var(--bg-color); /* Fallback color */
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Native smooth scroll */
+        }
+
+        /* FLUID BACKGROUND (Desktop Only) */
+        #fluid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: #ffffff; /* White Base */
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px); 
+            opacity: 0.3; /* Increased visibility */
+            mix-blend-mode: multiply; 
+        }
+
+        /* ANIMATION UPDATE: Broader movement, slightly faster than dead-static but still calm */
+        .orb-1 {
+            width: 45vw; /* Slightly larger */
+            height: 45vw;
+            background: var(--fluid-blue);
+            top: -10%;
+            left: -10%;
+            animation: float-1 25s infinite alternate ease-in-out;
+        }
+
+        .orb-2 {
+            width: 40vw;
+            height: 40vw;
+            background: var(--fluid-green);
+            bottom: -5%;
+            right: -5%;
+            animation: float-2 30s infinite alternate ease-in-out;
+        }
+
+        .orb-3 {
+            width: 35vw;
+            height: 35vw;
+            background: var(--fluid-blue);
+            top: 40%;
+            left: 40%;
+            opacity: 0.25;
+            animation: float-3 28s infinite alternate ease-in-out;
+        }
+
+        @keyframes float-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 80px) scale(1.2); } /* Visible breathing */
+        }
+        @keyframes float-2 {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            100% { transform: translate(-80px, -100px) rotate(20deg) scale(1.1); }
+        }
+        @keyframes float-3 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-60px, 60px) scale(1.3); }
+        }
+
+
+        /* Titles & Headings (Sans-Serif) */
+        h1, h2, h3, h4, .sans {
+            font-family: var(--font-sans);
+            letter-spacing: -0.03em; /* Tighter tracking for modern sans look */
+        }
+
+        h1 { 
+            font-size: 4.5rem; 
+            line-height: 1.1; 
+            margin-bottom: 24px; 
+            font-weight: 800; 
+            text-align: center; 
+            color: #111; 
+        }
+        
+        h2 { font-size: 3rem; margin-bottom: 24px; line-height: 1.1; color: #111; font-weight: 700; }
+        h3 { font-size: 0.85rem; margin-bottom: 20px; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; }
+        
+        /* Body Text (Sans-Serif Default) */
+        p { 
+            font-size: 1.15rem; /* Adjusted for Sans readability */
+            color: #444; 
+            margin-bottom: 24px; 
+            line-height: 1.7; 
+        }
+        
+        /* Serif Exception Class */
+        .text-serif {
+            font-family: var(--font-serif);
+            font-style: italic; /* Optional: adds to the "voice" */
+        }
+
+        /* Hero Label Style */
+        .hero-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-align: center;
+            display: block;
+            margin-bottom: 12px; /* Reduced to bring closer to title */
+        }
+
+        .hero-sub {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* --- 3. HERO SECTION --- */
+        header { 
+            /* Increased top padding to give space from screen edge */
+            padding: 160px 0 0; 
+            position: relative; /* Ensure z-index works for content above bg */
+        }
+        
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-top: 1px solid #E5E5EA;
+            border-bottom: none; 
+            padding: 40px 0;
+            
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-align: left;
+        }
+        .meta-column h4 { 
+            color: var(--text-main); 
+            margin-bottom: 16px; 
+            font-weight: 700; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .meta-column ul { list-style: none; padding: 0; }
+        .meta-column li { margin-bottom: 6px; line-height: 1.5; }
+
+        /* HERO CAROUSEL */
+        .hero-carousel-wrapper {
+            margin-top: 60px;
+            width: 100%;
+            height: 700px; /* Fixed height for hero */
+            border-radius: 4px;
+            border: 1px solid #E5E5EA;
+            overflow: hidden;
+            position: relative;
+            background: white; /* Ensure content is readable if bg is too busy, or remove for full transparency */
+        }
+
+        /* --- 4. DARK IMPACT SECTION --- */
+        .impact-section {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            padding: 100px 0;
+            margin-top: 80px; 
+            position: relative; /* Stack above fluid bg */
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+            margin-bottom: 60px; 
+        }
+
+        .impact-overview {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .stat-item strong { 
+            display: block; 
+            font-size: 4rem; 
+            color: var(--accent); 
+            line-height: 1; 
+            margin-bottom: 8px; 
+        }
+        .stat-item span { 
+            font-size: 1rem; 
+            color: #888; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+
+        /* SERIF EXCEPTION 1: Overview Text */
+        .impact-overview p { 
+            font-family: var(--font-serif); /* Serif applied */
+            color: #DDD; 
+            font-size: 1.6rem; 
+            line-height: 1.6; 
+            margin-bottom: 0; 
+        }
+
+
+        /* --- 5. CONTENT SECTIONS --- */
+        .content-section {
+            padding: 160px 0;
+            position: relative; /* Stack above fluid bg */
+        }
+
+        .content-section.last-item {
+            padding-bottom: 0;
+        }
+        
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: flex-start;
+        }
+        
+        .col-left { grid-column: 1 / 2; }
+        .col-right { grid-column: 2 / 3; }
+
+        .full-span-image {
+            margin-top: 80px;
+            width: 100%;
+            height: 650px;
+            background: #F0F0F3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            
+            /* Initial State for Scroll Animation */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Animation Class */
+        .full-span-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Subtitle style for sections */
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: -16px;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        /* --- 6. CAROUSEL COMPONENT (Reused for Hero & Sections) --- */
+        .carousel-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #E0E0E0;
+            overflow: hidden;
+        }
+        /* Specific height override if carousel is standalone */
+        .content-section .carousel-container {
+            min-height: 500px;
+            border-radius: 8px;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #555;
+            background-size: cover;
+            background-position: center;
+        }
+        .carousel-slide.active { display: flex; }
+        
+        /* Nav Arrows: Glass Style */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            /* Glassmorphism */
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            
+            width: 56px; 
+            height: 56px;
+            border-radius: 50%;
+            cursor: pointer;
+            
+            font-size: 1.2rem;
+            color: #fff; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav-arrow:hover { 
+            background: rgba(255, 255, 255, 0.35); 
+            transform: translateY(-50%) scale(1.05);
+        }
+        /* Darker icon for light images if needed, keeping white for consistency */
+        .prev { left: 32px; }
+        .next { right: 32px; }
+
+        /* --- 7. SIDE BY SIDE LAYOUT --- */
+        .side-by-side-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .side-image-container {
+            height: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- 8. MORE STORIES --- */
+        .stories-section {
+            padding: 80px 0 160px;
+            background: rgba(245, 245, 247, 0.8); /* Slight transparent to show subtle blur behind */
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .story-text-display {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            min-height: 80px;
+            transition: opacity 0.3s;
+        }
+        
+        .stories-stage {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+        
+        .story-card {
+            position: absolute;
+            width: 480px;
+            height: 300px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #999;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .story-card.active {
+            z-index: 10;
+            transform: translateX(0) scale(1.1);
+            opacity: 1;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            color: #111;
+            border: 2px solid var(--accent);
+        }
+
+        .story-card.left-1 { transform: translateX(-350px) scale(0.85); z-index: 5; opacity: 0.8; }
+        .story-card.left-2 { transform: translateX(-600px) scale(0.7); z-index: 1; opacity: 0.4; }
+        .story-card.right-1 { transform: translateX(350px) scale(0.85); z-index: 5; opacity: 0.8; }
+        .story-card.right-2 { transform: translateX(600px) scale(0.7); z-index: 1; opacity: 0.4; }
+
+        
+        /* FOOTER */
+        .footer-note {
+            background: #1C1C1E;
+            color: #fff;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+        }
+        .footer-note h2 {
+            color: #fff;
+            font-size: 2rem;
+        }
+        /* SERIF EXCEPTION 2: Footer Teaser */
+        .footer-note p {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 20px auto 40px;
+            font-style: italic;
+        }
+        .footer-note a { color: #fff; text-decoration: underline; margin: 0 16px; }
+
+        /* FLOATING NAV BUTTONS */
+        .float-btn {
+            position: fixed;
+            bottom: 40px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #333;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .float-btn:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .float-home { left: 40px; }
+        
+        /* Scroll to top starts hidden */
+        .float-top { 
+            right: 40px; 
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+        }
+        
+        /* Visible state for Scroll Top */
+        .float-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 900px) {
+            /* General Layout Reset */
+            .grid-2-col, .impact-stats, .side-by-side-grid { grid-template-columns: 1fr; }
+            .col-left, .col-right { grid-column: 1 / -1; }
+            
+            /* Typography Scale */
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            .hero-sub { font-size: 1.1rem; }
+            .stat-item strong { font-size: 3rem; }
+            .impact-overview p { font-size: 1.2rem; }
+            
+            /* Spacing adjustments */
+            .container { padding: 0 24px; }
+            .content-section { padding: 80px 0; }
+            
+            /* Layout specific tweaks */
+            .meta-grid { 
+                grid-template-columns: 1fr; 
+                text-align: left; 
+                gap: 30px;
+            }
+            .hero-carousel-wrapper { height: 400px; }
+            .full-span-image, .side-image-container, .content-section .carousel-container { 
+                height: 350px; 
+                min-height: 350px;
+                margin-top: 40px;
+            }
+            
+            /* HIDE FLUID BG ON MOBILE FOR PERFORMANCE */
+            #fluid-background { display: none; }
+            
+            /* STORIES RESPONSIVE LOGIC */
+            .story-card { 
+                width: 70vw; 
+                height: 50vw; 
+                min-height: 250px;
+            }
+            
+            /* Adjust Transforms for narrow screens */
+            .story-card.left-1 { transform: translateX(-40px) scale(0.85); opacity: 0.6; }
+            .story-card.left-2 { transform: translateX(-80px) scale(0.7); opacity: 0; } /* Hide further cards */
+            .story-card.right-1 { transform: translateX(40px) scale(0.85); opacity: 0.6; }
+            .story-card.right-2 { transform: translateX(80px) scale(0.7); opacity: 0; } /* Hide further cards */
+            
+            /* Float Button positioning */
+            .float-btn { bottom: 20px; }
+            .float-home { left: 20px; }
+            .float-top { right: 20px; }
+        }
+    </style>
+</head>
+<body id="top">
+
+    <!-- FLUID BACKGROUND ANIMATION -->
+    <div id="fluid-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- FLOATING BUTTONS -->
+    <a href="index.html" class="float-btn float-home" title="Home">
+        🏠
+    </a>
+    <a href="#top" class="float-btn float-top" title="Back to Top">
+        ↑
+    </a>
+
+    <!-- HERO -->
+    <header class="container">
+        <!-- Label -->
+        <span class="hero-label">Case Study • 2022 Nov- 2024 May</span>
+        
+        <h1>Bridging the Gap in<br>Global Health Data</h1>
+        <p class="hero-sub">
+            Building a scalable digital ecosystem to solve the CDC's critical data acquisition problem.
+        </p>
+        
+        <!-- Meta Grid -->
+        <div class="meta-grid">
+            <div class="meta-column">
+                <h4>ROLE</h4>
+                <ul>
+                    <li>UX/UI Design Lead</li>
+                    <li>UX Research & Testing</li>
+                    <li>Content Design & Prototyping</li>
+                    <li>Branding, Animation, Illustration</li>
+                    <li>Marketing Materials</li>
+                </ul>
+            </div>
+            <div class="meta-column">
+                <h4>Team & Partners</h4>
+                <ul>
+                    <li>Lab PIs (Product Managers)</li>
+                    <li>3 Engineers & 1 Design Intern</li>
+                    <li>Medical Doctors & Researchers</li>
+                    <li>Mass General Hospital & CDC</li>
+                </ul>
+            </div>
+            <div class="meta-column">
+                <h4>AWARDS & PUBLICATIONS</h4>
+                <ul>
+                    <li>2024 UX Design Award Nomination</li>
+                    <li>Journal of Travel Medicine</li>
+                    <li>The Medium post</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- NEW HERO CAROUSEL -->
+        <div class="hero-carousel-wrapper">
+            <div class="carousel-container" id="hero-carousel">
+                <button class="nav-arrow prev" onclick="moveCarousel('hero-carousel', -1)">&#10094;</button>
+                <div class="carousel-slide active" style="background-color: #EBEBEF;">Hero 1: Composite View</div>
+                <div class="carousel-slide" style="background-color: #D6D6DA;">Hero 2: App Interaction</div>
+                <div class="carousel-slide" style="background-color: #C1C1C5;">Hero 3: Dashboard Zoom</div>
+                <button class="nav-arrow next" onclick="moveCarousel('hero-carousel', 1)">&#10095;</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- IMPACT SECTION -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="impact-stats">
+                <div class="stat-item">
+                    <strong>$1.5M</strong>
+                    <span>Funding Secured</span>
+                </div>
+                <div class="stat-item">
+                    <strong>72%</strong>
+                    <span>Efficiency Gain</span>
+                </div>
+                <div class="stat-item">
+                    <strong>18</strong>
+                    <span>Clinical Sites</span>
+                </div>
+            </div>
+            
+            <div class="impact-overview">
+                <!-- Serif Exception -->
+                <p>
+                    I led the 0-to-1 design of this public health platform to solve a systemic "Data Acquisition Problem." Executing 90% of the hands-on work, I bridged the gap between clinical rigor and user behavior, transforming a fragmented paper workflow into a live digital defense system.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: SYSTEMIC DISCONNECT -->
+    <section class="content-section container">
+        <div class="side-by-side-grid">
+            <div>
+                <h3>THE PROBLEM</h3>
+                <h2>A Systemic Disconnect</h2>
+                <p>
+                    <strong>The Context:</strong> During the COVID-19 crisis, the CDC needed to track virus variants across borders. However, the existing infrastructure was broken. It was a siloed system where researchers and travelers operated in completely different worlds.
+                </p>
+                <p>
+                    <strong>The Core Problem:</strong> Researchers relied on manual paper forms that caused massive delays, while travelers faced high-friction processes that led to immediate drop-offs.
+                </p>
+            </div>
+            
+            <div class="side-image-container">
+                <div class="carousel-container" id="carousel-1">
+                    <button class="nav-arrow prev" onclick="moveCarousel('carousel-1', -1)">&#10094;</button>
+                    <div class="carousel-slide active" style="background-color: #ddd;">Slide 1: Paper Forms</div>
+                    <div class="carousel-slide" style="background-color: #ccc;">Slide 2: Siloed Teams</div>
+                    <div class="carousel-slide" style="background-color: #bbb;">Slide 3: Data Lag</div>
+                    <button class="nav-arrow next" onclick="moveCarousel('carousel-1', 1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: SOLVING FRICTION -->
+    <section class="content-section container">
+        <div class="grid-2-col">
+            <div class="col-left">
+                <h3>Part 1: The Input Engine</h3>
+                <h2>Solving Friction with<br>"Minimum Viable Data"</h2>
+                <p class="section-subtitle">Designed the mobile app to remove barriers for the patients.</p>
+                
+                <p>
+                    <strong>The Problem:</strong> 83% Drop-off Rate. That was the reality of the old system. The clinical requirements forced travelers to fill out 4-page medical history forms before they even arrived.
+                </p>
+                <p>
+                    <strong>The Pivot:</strong> I facilitated a workshop to negotiate a "Minimum Viable Data" strategy, cutting initial fields by 30% and deferring complex questions.
+                </p>
+            </div>
+        </div>
+
+        <div class="full-span-image">
+            <div style="text-align: center;">
+                <span style="font-size: 3rem;">📱</span><br>
+                STATIC VISUAL: FRICTION COMPARISON
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THE CORE LOOP -->
+    <section class="content-section container">
+        <div class="grid-2-col">
+            <div class="col-right">
+                <h2>The Core Loop:<br>The 60-Second Survey</h2>
+                <p>
+                    We redesigned the intake flow into a bite-sized, linear loop that takes less than 60 seconds.
+                </p>
+                <p>
+                    By reducing cognitive load and focusing on speed, we dramatically increased completion rates for travelers on the go.
+                </p>
+            </div>
+        </div>
+
+        <div class="full-span-image" style="background: #F0F4F8;">
+             <div style="text-align: center;">
+                <span style="font-size: 3rem;">🔄</span><br>
+                VISUAL: 60-SEC LOOP
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: SOLVING RETENTION (SCROLL LAYOUT) -->
+    <section class="content-section container">
+        <div class="grid-2-col">
+            <div class="col-left">
+                <h2>Solving Retention:<br>Value Exchange</h2>
+                <p>
+                    To solve the "Survey Fatigue" issue, we had to shift from "Extracting Data" to "Providing Value."
+                </p>
+                
+                <div style="margin-top: 40px;">
+                    <p><strong>Emotional (Gamification):</strong> I designed the 'Digital Postcard' system. It turned data entry into a collectible game.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image 1: Gamification -->
+        <div class="full-span-image" style="margin-top: 40px; margin-bottom: 80px; height: 500px;">
+            <div style="text-align: center;">
+                <span style="font-size: 3rem;">🧩</span><br>
+                VISUAL: DIGITAL POSTCARD
+            </div>
+        </div>
+
+        <!-- Text Block 2 -->
+        <div class="grid-2-col">
+            <div class="col-left">
+                <p><strong>Clinical Utility (The Calendar):</strong> Created a Visual Health Diary that travelers use to share history with their doctors.</p>
+            </div>
+        </div>
+
+        <!-- Image 2: Calendar -->
+        <div class="full-span-image" style="margin-top: 40px; height: 500px;">
+            <div style="text-align: center;">
+                <span style="font-size: 3rem;">📅</span><br>
+                VISUAL: HEALTH DIARY CALENDAR
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: SOLVING COMPLEXITY -->
+    <section class="content-section container">
+        <div class="grid-2-col">
+            <div class="col-right">
+                <h2>Solving Complexity:<br>Automating Logic</h2>
+                <p>
+                    Malaria medication logic is notoriously confusing. Instead of exposing the complexity, I designed a <strong>Conditional Logic Controller</strong>.
+                </p>
+                <p>
+                    The system uses the user's GPS and Itinerary to pre-select the correct drug schedule in the backend, reducing 7 manual decisions to 1 simple confirmation.
+                </p>
+            </div>
+        </div>
+        
+        <div class="full-span-image" style="background: #E8F5E9;">
+             <div style="text-align: center;">
+                <span style="font-size: 3rem;">⚙️</span><br>
+                VISUAL: LOGIC FLOW
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: VISUALIZING RISK -->
+    <section class="content-section container last-item">
+        <div class="grid-2-col">
+            <div class="col-left">
+                <h3>Part 2: The Output Engine</h3>
+                <h2>Visualizing Risk for<br>Rapid Response</h2>
+                <p class="section-subtitle">For researchers, value meant insight, not just collection.</p>
+
+                <p>
+                    <strong>The Conflict:</strong> Stakeholders were drowning in noise. Policymakers needed macro trends to allocate funding, while epidemiologists needed granular, row-level data for contact tracing. The dashboard had to serve both.
+                </p>
+                <p>
+                    <strong>The Solution:</strong> I designed a <strong>Risk-Density Visualization Model</strong>. We used a "Bubble" syntax where Size = Confidence and Color = Severity. This allowed an analyst to scan the entire globe in seconds.
+                </p>
+            </div>
+        </div>
+
+        <div class="full-span-image" style="background: #111; color: white;">
+            VISUAL: DASHBOARD RISK MAP
+        </div>
+    </section>
+
+    <!-- MORE STORIES -->
+    <section class="stories-section">
+        <div class="container">
+            <h3>More Stories</h3>
+            
+            <div class="story-text-display">
+                <p id="story-desc" class="sans">A data intelligence platform transforming how we perceive environmental metrics.</p>
+            </div>
+
+            <div class="stories-stage" id="stories-stage">
+                <!-- Cards injected via JS -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer-note">
+        <div class="container">
+            <h2>Beyond the Case Study</h2>
+            <!-- Serif Exception -->
+            <p>
+                Ask me how we handled GDPR compliance with a local-first database, or why we killed the "Gamified Map" feature to save engineering budget.
+            </p>
+            <!-- Button Swap -->
+            <a href="#">Email Me</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#">Next Project</a>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        // --- 1. CAROUSEL LOGIC ---
+        const carousels = {
+            'hero-carousel': { index: 0, slides: 3 },
+            'carousel-1': { index: 0, slides: 3 }
+        };
+
+        function moveCarousel(id, direction) {
+            const c = carousels[id];
+            const container = document.getElementById(id);
+            const slides = container.querySelectorAll('.carousel-slide');
+            slides[c.index].classList.remove('active');
+            c.index = (c.index + direction + c.slides) % c.slides;
+            slides[c.index].classList.add('active');
+        }
+
+        // Auto-play both hero and section carousels
+        setInterval(() => {
+            moveCarousel('hero-carousel', 1);
+            moveCarousel('carousel-1', 1);
+        }, 4000);
+
+
+        // --- 2. STORIES LOGIC (Circular Logic Update) ---
+        const storiesData = [
+            { title: "Project Alpha", desc: "Redefining fintech dashboards.", bg: "#FFCDD2" },
+            { title: "Beta Health", desc: "Mobile-first telemedicine.", bg: "#C8E6C9" },
+            { title: "Feeling Nature", desc: "A data intelligence platform transforming environmental metrics.", bg: "#BBDEFB" },
+            { title: "Gamma Systems", desc: "Enterprise logistics design.", bg: "#E1BEE7" },
+            { title: "Delta Research", desc: "Urban mobility research.", bg: "#FFE0B2" }
+        ];
+
+        let activeIndex = 2; // Start center (Index 2 in 0-4)
+        const stage = document.getElementById('stories-stage');
+        const descDisplay = document.getElementById('story-desc');
+
+        // Create Cards
+        function initStories() {
+            storiesData.forEach((story, i) => {
+                const card = document.createElement('div');
+                card.classList.add('story-card');
+                card.innerText = story.title;
+                card.style.backgroundColor = story.bg;
+                card.onclick = () => updateStories(i);
+                stage.appendChild(card);
+            });
+            updateStories(activeIndex);
+        }
+
+        function updateStories(newIndex) {
+            activeIndex = newIndex;
+            const cards = document.querySelectorAll('.story-card');
+            const total = cards.length;
+            
+            // Update Text
+            descDisplay.style.opacity = 0;
+            setTimeout(() => {
+                descDisplay.innerText = storiesData[activeIndex].desc;
+                descDisplay.style.opacity = 1;
+            }, 300);
+
+            // Position Cards (Circular)
+            cards.forEach((card, i) => {
+                card.className = 'story-card'; // Reset
+                
+                // Circular difference logic
+                let diff = (i - activeIndex) % total;
+                if (diff < 0) diff += total; 
+
+                // Mapping normalized diff (0..4) to relative positions
+                if (diff === 0) {
+                    card.classList.add('active');
+                    card.style.zIndex = 10;
+                } else if (diff === 1) {
+                    card.classList.add('right-1');
+                    card.style.zIndex = 5;
+                } else if (diff === 2) {
+                    card.classList.add('right-2');
+                    card.style.zIndex = 1;
+                } else if (diff === 3) { // Logic for -2
+                    card.classList.add('left-2');
+                    card.style.zIndex = 1;
+                } else if (diff === 4) { // Logic for -1
+                    card.classList.add('left-1');
+                    card.style.zIndex = 5;
+                }
+            });
+        }
+
+        // Initialize
+        initStories();
+
+        // --- 3. SCROLL LOGIC ---
+        document.addEventListener("DOMContentLoaded", function() {
+            // A. SCROLL ANIMATION
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Run once
+                    }
+                });
+            }, observerOptions);
+
+            const animatedImages = document.querySelectorAll('.full-span-image');
+            animatedImages.forEach(img => {
+                observer.observe(img);
+            });
+
+            // B. SCROLL-TO-TOP BUTTON VISIBILITY
+            const floatTopBtn = document.querySelector('.float-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 800) { // Show after 800px (past Hero)
+                    floatTopBtn.classList.add('visible');
+                } else {
+                    floatTopBtn.classList.remove('visible');
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
