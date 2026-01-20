@@ -119,6 +119,8 @@ p {
     font-weight: 400;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@300;400&display=swap');
+
 /* ================================================================
    4. LINKS - Hero and Recognition Links
    ================================================================ */
@@ -487,9 +489,9 @@ header {
 /* Serif exception for footer teaser text */
 .footer-note p {
     font-family: var(--font-serif);
-    font-size: 1.05rem;
-    color: #ccc;
-    max-width: 600px;
+    font-size: 1rem;
+    color: #b2b0b0;
+    max-width: 700px;
     margin: 20px auto 40px;
     font-style: italic;
 }

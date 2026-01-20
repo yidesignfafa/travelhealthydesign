@@ -74,38 +74,39 @@ setInterval(() => {
  * bg: Card background color
  * img: Image path for background
  */
-const storiesData = [
+ const storiesData = [
     {
-        title: "Early sketches",
-        desc: "From early sketches to wireframes to do quick ideations.",
+        title: "Early Sketches",
+        desc: "From early sketches to wireframes, I explored ideas quickly to shape concepts and validate directions before moving into high-fidelity design.",
         bg: "#2A2929",
         img: "./img/morestories/early sketches.png"
     },
     {
         title: "Stakeholder Meetings",
-        desc: "I had the bi-weekly meeting with different level stakeholders from 2022 - 2024 with documentations.",
+        desc: "I had bi-weekly meetings with cross-functional stakeholders from 2022 to 2024, aligning product direction, documenting decisions, and translating clinical needs into design solutions.",
         bg: "#C8E6C9",
         img: "./img/morestories/Meetings.png"
     },
     {
         title: "System Architecture",
-        desc: "To meet strict MGH privacy standards and support travelers with spotty internet, collaborating with engineers, we developed this Local-First Architecture.",
+        desc: "To meet strict MGH privacy requirements and support travelers with limited connectivity, I worked closely with engineers to define and design a Local-First architecture.",
         bg: "#BBDEFB",
         img: "./img/morestories/system-architecture-diagram-v3.png"
     },
     {
         title: "Research Synthesis",
-        desc: "Prioritizing the MVP Feature Set: Synthesized stakeholder requirements against user pain points to identify high-value features.",
+        desc: "I synthesized stakeholder requirements and user pain points to define the MVP feature set, prioritizing high-impact functionality under real-world constraints.",
         bg: "#E1BEE7",
         img: "./img/morestories/mapping.png"
     },
     {
-        title: "Design Review Feedback",
-        desc: "My design work recieved many positive feedback from stakehodlers and team engineers. I prepared and submitted the materials for the UX design award competition in 2024 summer, the project won recongniation in the field. It's my pleasure to work with the team!",
+        title: "Design Review & Recognition",
+        desc: "The project received strong feedback from stakeholders and engineers. I prepared materials and submitted the work for the 2024 UX Design Awards, where it received industry recognition.",
         bg: "#FFE0B2",
         img: "./img/morestories/Team.png"
     }
 ];
+
 
 let activeIndex = 2; // Start with center card (Index 2 in 0-4 array)
 const stage = document.getElementById('stories-stage');
